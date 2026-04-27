@@ -72,6 +72,7 @@ cargo run
 - Evolved data columns receive distinct `col-*` physical names.
 - All tables read back through delta-rs with logical column names.
 - DataFusion SQL filters use logical column names for both partition columns and mapped data columns.
+- Report-style DataFusion SQL queries combine partition filters with logical data-column filters such as `customer_name` and `amount`.
 
 The successful run ends with:
 

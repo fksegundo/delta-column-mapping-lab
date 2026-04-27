@@ -215,6 +215,26 @@ async fn validate_logical_filters(
         1,
     )
     .await?;
+    validate_report_filters(regular_path, column_mapping_path, evolved_path).await?;
+
+    Ok(())
+}
+
+async fn validate_report_filters(
+    regular_path: &Path,
+    column_mapping_path: &Path,
+    evolved_path: &Path,
+) -> LabResult {
+    let report_query = "SELECT COUNT(*) FROM events \
+        WHERE partition_year = '2026' \
+        AND partition_month = '04' \
+        AND partition_day = '27' \
+        AND customer_name = 'customer-100123' \
+        AND amount BETWEEN 494.90 AND 494.92";
+
+    assert_query_count(regular_path, report_query, 1).await?;
+    assert_query_count(column_mapping_path, report_query, 1).await?;
+    assert_query_count(evolved_path, report_query, 1).await?;
 
     Ok(())
 }
