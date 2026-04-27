@@ -124,6 +124,7 @@ async fn create_and_populate_evolved_column_mapping(table_path: &Path) -> LabRes
     table
         .write(vec![events_batch(&evolved_csv(), true)?])
         .with_schema_mode(SchemaMode::Merge)
+        .with_preserve_column_mapping_hive_style_partitions(true)
         .await?;
 
     Ok(())

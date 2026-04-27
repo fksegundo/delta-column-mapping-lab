@@ -16,7 +16,7 @@ deltalake = { git = "https://github.com/fksegundo/delta-rs", branch = "fk/column
 
 - `regular_events`: normal Delta table with Hive-style partition directories.
 - `column_mapping_events`: `delta.columnMapping.mode = name` table created with physical Parquet names from the first commit.
-- `evolved_column_mapping_events`: starts as a normal Delta table, enables column mapping, then appends new columns with `SchemaMode::Merge`.
+- `evolved_column_mapping_events`: starts as a normal Delta table, enables column mapping, then appends new columns with `SchemaMode::Merge` and opts into Hive-style partition path preservation.
 
 All tables are partitioned by:
 
@@ -67,7 +67,7 @@ cargo run
 
 - `regular_events` creates paths like `partition_year=2026/partition_month=04/partition_day=27`.
 - `column_mapping_events` writes randomized data prefixes and stores partition values with physical column names in the Delta log.
-- `evolved_column_mapping_events` keeps writing under Hive-style partition directories because its existing partition columns still have physical names equal to logical names.
+- `evolved_column_mapping_events` keeps writing under Hive-style partition directories by explicitly using `with_preserve_column_mapping_hive_style_partitions(true)`.
 - Existing columns in `evolved_column_mapping_events`, including partition columns, keep physical names equal to logical names.
 - Evolved data columns receive distinct `col-*` physical names.
 - All tables read back through delta-rs with logical column names.
