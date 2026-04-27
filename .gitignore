@@ -1,0 +1,5 @@
+/target/
+/tables/
+/data/
+/.env
+*.log
