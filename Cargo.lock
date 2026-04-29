@@ -1569,8 +1569,8 @@ dependencies = [
 
 [[package]]
 name = "deltalake"
-version = "0.32.1"
-source = "git+https://github.com/fksegundo/delta-rs?branch=fk%2Fcolumn-mapping-name-write#39675bd489a388f38984bce5f8053afdbd3351cb"
+version = "0.32.2"
+source = "git+https://github.com/fksegundo/delta-rs?branch=fk%2Fcolumn-mapping-name-write#c7513d1c2163e1d938d44d0b5ab67401c6640dc9"
 dependencies = [
  "buoyant_kernel",
  "ctor",
@@ -1579,8 +1579,8 @@ dependencies = [
 
 [[package]]
 name = "deltalake-core"
-version = "0.32.1"
-source = "git+https://github.com/fksegundo/delta-rs?branch=fk%2Fcolumn-mapping-name-write#39675bd489a388f38984bce5f8053afdbd3351cb"
+version = "0.32.2"
+source = "git+https://github.com/fksegundo/delta-rs?branch=fk%2Fcolumn-mapping-name-write#c7513d1c2163e1d938d44d0b5ab67401c6640dc9"
 dependencies = [
  "arrow",
  "arrow-arith",
@@ -1633,7 +1633,7 @@ dependencies = [
 [[package]]
 name = "deltalake-derive"
 version = "1.0.0"
-source = "git+https://github.com/fksegundo/delta-rs?branch=fk%2Fcolumn-mapping-name-write#39675bd489a388f38984bce5f8053afdbd3351cb"
+source = "git+https://github.com/fksegundo/delta-rs?branch=fk%2Fcolumn-mapping-name-write#c7513d1c2163e1d938d44d0b5ab67401c6640dc9"
 dependencies = [
  "convert_case",
  "itertools",
